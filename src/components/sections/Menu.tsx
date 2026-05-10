@@ -131,13 +131,13 @@ export default function Menu() {
                 }}
                 className="relative flex items-center gap-2 px-6 py-3 rounded-full border font-body text-sm font-medium whitespace-nowrap transition-all duration-300 hover:border-sage"
               >
-                <span>{tab.emoji}</span>
-                <span>{tab.label}</span>
+                <span className="relative z-10">{tab.emoji}</span>
+                <span className="relative z-10">{tab.label}</span>
                 {isActive && (
                   <motion.div
                     layoutId="tab-indicator"
                     className="absolute inset-0 rounded-full"
-                    style={{ backgroundColor: colors.sage }}
+                    style={{ backgroundColor: colors.sage, zIndex: 0 }}
                     transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
                   />
                 )}

@@ -8,7 +8,7 @@ import { staggerContainer, fadeUp, fadeIn } from "@/components/animations/varian
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TITLE_LINE_1 = "El brunch que";
+const TITLE_LINE_1 = "El brunch que mereces cada día";
 const TITLE_LINE_2 = "mereces cada día";
 
 function SplitText({ text, className }: { text: string; className?: string }) {
@@ -85,12 +85,12 @@ export default function Hero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 text-center px-6 max-w-4xl mx-auto"
+        className="relative z-10 text-center px-6 mx-auto"
       >
         {/* Tag */}
         <motion.span
           variants={fadeIn}
-          className="inline-block font-body text-sm text-cream/80 tracking-[0.25em] uppercase mb-6 border border-cream/30 px-4 py-1.5 rounded-full"
+          className="inline-block font-body text-sm text-cream/90 tracking-[0.25em] uppercase mb-6 border border-cream/40 px-4 py-1.5 rounded-full"
         >
           Providencia, Santiago
         </motion.span>
@@ -100,23 +100,23 @@ export default function Hero() {
           <motion.div variants={staggerContainer} initial="hidden" animate="visible">
             <SplitText text={TITLE_LINE_1} />
           </motion.div>
-          <br />
+          {/* <br /> */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
           >
-            <SplitText
+            {/* <SplitText
               text={TITLE_LINE_2}
               className="text-sand"
-            />
+            /> */}
           </motion.div>
         </h1>
 
         {/* Descripción */}
         <motion.p
           variants={fadeUp}
-          className="font-body text-lg md:text-xl text-cream/75 max-w-xl mx-auto mb-10 leading-relaxed"
+          className="font-body text-lg md:text-xl text-cream/85 max-w-xl mx-auto mb-10 leading-relaxed"
         >
           Ingredientes frescos, café de especialidad y un ambiente donde el tiempo se detiene.
         </motion.p>
@@ -148,7 +148,7 @@ export default function Hero() {
         transition={{ delay: 2, duration: 0.8 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="font-body text-xs text-cream/50 tracking-widest uppercase">Scroll</span>
+        <span className="font-body text-xs text-cream/90 tracking-widest uppercase">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}

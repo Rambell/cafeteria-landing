@@ -37,13 +37,14 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
-          
+
           {/* Logo */}
           <a
             href="#"
-            className="font-display text-2xl font-bold text-espresso tracking-tight"
+            style={{ color: scrolled ? "#2C2416" : "#F5F0E8" }}
+            className="font-display text-2xl font-bold tracking-tight transition-colors duration-500"
           >
-            Menta <span className="text-sage">&</span> Café
+            Menta <span style={{ color: "#4A7C59" }}>&</span> Café
           </a>
 
           {/* Links desktop */}
@@ -52,7 +53,12 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="font-body text-sm text-espresso/70 hover:text-sage transition-colors duration-300 tracking-wide"
+                  style={{ color: scrolled ? "#2C2416B3" : "#F5F0E8CC" }}
+                  className="font-body text-sm transition-colors duration-500 tracking-wide hover:opacity-100"
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#4A7C59")}
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = scrolled ? "#2C2416B3" : "#F5F0E8CC")
+                  }
                 >
                   {link.label}
                 </a>
@@ -63,7 +69,12 @@ export default function Navbar() {
           {/* CTA desktop */}
           <a
             href="#reserva"
-            className="hidden md:inline-flex items-center gap-2 bg-sage text-cream text-sm font-body font-medium px-5 py-2.5 rounded-full hover:bg-forest transition-colors duration-300"
+            style={{
+              backgroundColor: scrolled ? "#4A7C59" : "transparent",
+              color: "#F5F0E8",
+              borderColor: "#F5F0E8",
+            }}
+            className="hidden md:inline-flex items-center gap-2 text-sm font-body font-medium px-5 py-2.5 rounded-full border transition-all duration-500 hover:opacity-80"
           >
             Reservar mesa
           </a>
@@ -76,15 +87,18 @@ export default function Navbar() {
           >
             <motion.span
               animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-0.5 bg-espresso origin-center transition-all"
+              style={{ backgroundColor: scrolled ? "#2C2416" : "#F5F0E8" }}
+              className="block w-6 h-0.5 origin-center transition-colors duration-500"
             />
             <motion.span
               animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block w-6 h-0.5 bg-espresso"
+              style={{ backgroundColor: scrolled ? "#2C2416" : "#F5F0E8" }}
+              className="block w-6 h-0.5 transition-colors duration-500"
             />
             <motion.span
               animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-0.5 bg-espresso origin-center transition-all"
+              style={{ backgroundColor: scrolled ? "#2C2416" : "#F5F0E8" }}
+              className="block w-6 h-0.5 origin-center transition-colors duration-500"
             />
           </button>
         </div>
@@ -98,7 +112,8 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-cream flex flex-col items-center justify-center gap-8 md:hidden"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 md:hidden"
+            style={{ backgroundColor: "#F5F0E8" }}
           >
             {NAV_LINKS.map((link, i) => (
               <motion.a
@@ -108,7 +123,8 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.07, duration: 0.4 }}
-                className="font-display text-3xl text-espresso hover:text-sage transition-colors"
+                style={{ color: "#2C2416" }}
+                className="font-display text-3xl transition-colors hover:text-sage"
               >
                 {link.label}
               </motion.a>
@@ -119,11 +135,12 @@ export default function Navbar() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: NAV_LINKS.length * 0.07 + 0.1 }}
-              className="mt-4 bg-sage text-cream font-body font-medium px-8 py-3 rounded-full text-lg hover:bg-forest transition-colors"
+              style={{ backgroundColor: "#4A7C59", color: "#F5F0E8" }}
+              className="mt-4 font-body font-medium px-8 py-3 rounded-full text-lg hover:opacity-90 transition-opacity"
             >
               Reservar mesa
             </motion.a>
-            <p className="absolute bottom-8 text-espresso/40 text-sm font-body">
+            <p className="absolute bottom-8 text-sm font-body" style={{ color: "#2C241640" }}>
               {LOCAL_INFO.instagram}
             </p>
           </motion.div>
